@@ -32,7 +32,7 @@ public class SplashPresenter extends BasePresenter<SplashContract.IView> impleme
                 mActivity.finish();
                 mActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
-        }, 5000);
+        }, 2000);
     }
 
     @Override

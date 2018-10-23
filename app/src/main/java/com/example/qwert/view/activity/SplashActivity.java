@@ -19,7 +19,7 @@ public class SplashActivity extends BaseActivity<SplashContract.IPresenter> impl
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_splash;
     }
 
     @Override
