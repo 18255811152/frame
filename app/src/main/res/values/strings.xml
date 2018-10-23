@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">frame</string>
+    <string name="upload_pic">上傳圖片</string>
 </resources>

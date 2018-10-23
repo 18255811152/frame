@@ -16,7 +16,7 @@ import java.util.List;
 public class SplashPresenter extends BasePresenter<SplashContract.IView> implements SplashContract.IPresenter {
 
     Handler mHandler = new Handler();
-
+    //android.media.action.IMAGE_CAPTURE
     String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     public SplashPresenter(SplashContract.IView mView, Activity mActivity) {
@@ -48,10 +48,12 @@ public class SplashPresenter extends BasePresenter<SplashContract.IView> impleme
         AndPermission.with(mActivity).runtime().permission(permissions).onGranted(new Action<List<String>>() {
             @Override
             public void onAction(List<String> data) {
+
             }
         }).onDenied(new Action<List<String>>() {
             @Override
             public void onAction(List<String> data) {
+
             }
         }).start();
     }

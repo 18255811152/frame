@@ -7,7 +7,6 @@ import com.example.qwert.view.activity.base.BaseActivity;
 
 public class SplashActivity extends BaseActivity<SplashContract.IPresenter> implements SplashContract.IView {
 
-
     @Override
     protected void initPresenter() {
         mPresenter = new SplashPresenter(this, this);
