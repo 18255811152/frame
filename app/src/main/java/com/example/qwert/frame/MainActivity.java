@@ -4,9 +4,12 @@ package com.example.qwert.frame;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.qwert.app.utils.DataCleanManager;
 import com.example.qwert.app.utils.GlideImageLoader;
 import com.example.qwert.contract.MainContract;
 import com.example.qwert.presenter.MainPresenter;
@@ -29,6 +32,8 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
 
     @BindView(R.id.upload)
     Button upload;
+    @BindView(R.id.clear_data)
+    Button clearData;
 
     @Override
     public void onCreaet() {
@@ -60,16 +65,13 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
     @Override
     protected void initDate() {
         Rxbus.get().register(this);
-        ImagePicker imagePicker = ImagePicker.getInstance();
-        imagePicker.setImageLoader(new GlideImageLoader());   //设置图片加载器
-        imagePicker.setShowCamera(true);  //显示拍照按钮
-        imagePicker.setCrop(true);        //允许裁剪（单选才有效）
-        imagePicker.setSaveRectangle(true); //是否按矩形区域保存
-        imagePicker.setSelectLimit(1);    //选中数量限制
-        imagePicker.setMultiMode(true);
-        imagePicker.setStyle(CropImageView.Style.CIRCLE);  //裁剪框的形状
-        imagePicker.setFocusWidth(300);   //裁剪框的宽度。单位像素（圆形自动取宽高最小值）
-        imagePicker.setFocusHeight(300);  //裁剪框的高度。单位像素（圆形自动取宽高最小值）
+        mPresenter.initImagePicker();
+        mPresenter.getDataMangerSize();
+        try {
+            clearData.setText(DataCleanManager.getCacheSize(mPresenter.getDataMangerSize()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -106,12 +108,6 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.upload)
-    public void onViewClicked() {
-        showToast("SSSSSSSSSSSSSSSSSS");
-        mPresenter.upLoad();
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -129,5 +125,19 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
             )
     public void getImagePath(String ImagePath) {
         imageView.setImageURI(Uri.fromFile(new File(ImagePath)));
+    }
+
+    @OnClick({R.id.clear_data, R.id.upload})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.clear_data:
+                clearData.setText(mPresenter.clearData(clearData.getText().toString().trim()));
+
+
+                break;
+            case R.id.upload:
+                mPresenter.upLoad();
+                break;
+        }
     }
 }
