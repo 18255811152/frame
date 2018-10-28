@@ -84,6 +84,7 @@ public abstract class BaseActivity<P extends IBasePresenter> extends LowestActiv
     @Override
     protected void initView() {
         setContentView(getLayoutId());
+
         ButterKnife.bind(this);
     }
 

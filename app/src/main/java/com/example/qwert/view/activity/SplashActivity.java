@@ -26,5 +26,6 @@ public class SplashActivity extends BaseActivity<SplashContract.IPresenter> impl
     protected void initDate() {
         mPresenter.goMain();
         mPresenter.CheckPermission();
+
     }
 }
