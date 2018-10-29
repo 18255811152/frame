@@ -1,7 +1,7 @@
 package com.example.qwert.view.activity;
 
+import com.example.qwert.R;
 import com.example.qwert.contract.SplashContract;
-import com.example.qwert.frame.R;
 import com.example.qwert.presenter.SplashPresenter;
 import com.example.qwert.view.activity.base.BaseActivity;
 

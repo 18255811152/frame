@@ -8,7 +8,6 @@ import com.example.qwert.tools.T;
 import com.lzy.imagepicker.ImagePicker;
 
 public class FrameApplication extends Application {
-    public static ImagePicker imagePicker;
 
 
     @Override

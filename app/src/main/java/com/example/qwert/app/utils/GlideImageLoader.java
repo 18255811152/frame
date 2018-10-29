@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.qwert.frame.R;
+import com.example.qwert.R;
 import com.lzy.imagepicker.loader.ImageLoader;
 
 import java.io.File;

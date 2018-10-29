@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.qwert.R;
 import com.example.qwert.app.utils.DataCleanManager;
 import com.example.qwert.app.utils.GlideImageLoader;
 import com.example.qwert.contract.MainContract;
@@ -30,8 +31,15 @@ import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity<MainContract.IPresenter> implements MainContract.IView {
 
+    @BindView(R.id.upload_imagePicker)
+    Button uploadImagePicker;
+
+    @BindView(R.id.upload_imagePicker_weixin)
+    Button uploadImagePickerWeiXin;
+
     @BindView(R.id.upload)
     Button upload;
+
     @BindView(R.id.clear_data)
     Button clearData;
 
@@ -127,17 +135,26 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
         imageView.setImageURI(Uri.fromFile(new File(ImagePath)));
     }
 
-    @OnClick({R.id.clear_data, R.id.upload})
+    @OnClick({R.id.clear_data, R.id.upload, R.id.upload_imagePicker, R.id.upload_imagePicker_weixin})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.clear_data:
                 clearData.setText(mPresenter.clearData(clearData.getText().toString().trim()));
-
-
                 break;
+
+            case R.id.upload_imagePicker:
+                mPresenter.upLoadImagePicker();
+                break;
+
+            case R.id.upload_imagePicker_weixin:
+                mPresenter.upLoadImagePickerWeiXin();
+                break;
+
             case R.id.upload:
-                mPresenter.upLoad();
+                mPresenter.upLoadImage();
                 break;
         }
     }
+
+
 }

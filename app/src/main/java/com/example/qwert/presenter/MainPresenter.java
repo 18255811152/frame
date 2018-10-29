@@ -9,13 +9,16 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 
+import com.example.qwert.R;
 import com.example.qwert.app.utils.DataCleanManager;
 import com.example.qwert.app.utils.GlideImageLoader;
 import com.example.qwert.app.utils.ImageUtil;
 import com.example.qwert.contract.MainContract;
 import com.example.qwert.presenter.base.BasePresenter;
+import com.example.qwert.tools.I;
 import com.example.qwert.tools.Rxbus;
 import com.example.qwert.value.ContactValue;
+import com.example.qwert.view.weight.SelectDialog;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
@@ -24,13 +27,13 @@ import com.lzy.imagepicker.view.CropImageView;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainPresenter extends BasePresenter<MainContract.IView> implements MainContract.IPresenter {
     public static final int REQUEST_CODE_CHOOSE = 100;
     private String cacheSize = "0.0KB";
 
-//    Handler handler = new Handler(Looper.getMainLooper());
-
+    private Handler mHandler = new Handler(Looper.getMainLooper());
 
     Handler handler = new Handler(new Handler.Callback() {
         @Override
@@ -54,10 +57,11 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
     }
 
     @Override
-    public void upLoad() {
+    public void upLoadImagePicker() {
         Intent intent = new Intent(mActivity, ImageGridActivity.class);
         mActivity.startActivityForResult(intent, REQUEST_CODE_CHOOSE);
     }
+
 
     @Override
     public void onUpLoadResult(int requestCode, int resultCode, Intent data) {
@@ -132,6 +136,27 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
     public File getDataMangerSize() {
         File file = new File(mActivity.getCacheDir().getPath());
         return file;
+    }
+
+
+    /**
+     * 仿照微信上传
+     */
+    @Override
+    public void upLoadImagePickerWeiXin() {
+        mHandler.postDelayed(() -> {
+            I.goWeiXinActivity(mActivity);
+            mActivity.finish();
+            mActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        }, 1000);
+    }
+
+    /**
+     * 普通上传
+     */
+    @Override
+    public void upLoadImage() {
+
     }
 
 

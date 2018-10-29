@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.qwert.frame">
+    package="com.example.qwert">
 
     <uses-permission android:name="android.media.action.IMAGE_CAPTURE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -32,14 +32,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.example.qwert.view.activity.SplashActivity">
+        <activity android:name=".view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".frame.MainActivity" />
 
         <!--<provider-->
         <!--android:name="com.example.qwert.app.utils.MyProvider"-->
@@ -66,6 +66,7 @@
         <!--tools:replace="name,resource" />-->
         <!--</provider>-->
 
+        <activity android:name=".view.activity.WeiXinActivity" />
 
         <!--配置多渠道打包-->
         <meta-data

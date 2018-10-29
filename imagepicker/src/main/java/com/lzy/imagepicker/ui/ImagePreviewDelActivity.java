@@ -67,7 +67,9 @@ public class ImagePreviewDelActivity extends ImagePreviewBaseActivity implements
         }
     }
 
-    /** 是否删除此张图片 */
+    /**
+     * 是否删除此张图片
+     */
     private void showDeleteDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("提示");
@@ -100,21 +102,21 @@ public class ImagePreviewDelActivity extends ImagePreviewBaseActivity implements
         super.onBackPressed();
     }
 
-//    /** 单击时，隐藏头和尾 */
-//    @Override
-//    public void onImageSingleTap() {
-//        if (topBar.getVisibility() == View.VISIBLE) {
-//            topBar.setAnimation(AnimationUtils.loadAnimation(this, com.lzy.imagepicker.R.anim.top_out));
-//            topBar.setVisibility(View.GONE);
-//            tintManager.setStatusBarTintResource(Color.TRANSPARENT);//通知栏所需颜色
-//            //给最外层布局加上这个属性表示，Activity全屏显示，且状态栏被隐藏覆盖掉。
-////            if (Build.VERSION.SDK_INT >= 16) content.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
-//        } else {
-//            topBar.setAnimation(AnimationUtils.loadAnimation(this, com.lzy.imagepicker.R.anim.top_in));
-//            topBar.setVisibility(View.VISIBLE);
-//            tintManager.setStatusBarTintResource(R.color.ip_color_primary_dark);//通知栏所需颜色
-//            //Activity全屏显示，但状态栏不会被隐藏覆盖，状态栏依然可见，Activity顶端布局部分会被状态遮住
-////            if (Build.VERSION.SDK_INT >= 16) content.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-//        }
-//    }
+    //    /** 单击时，隐藏头和尾 */
+    @Override
+    public void onImageSingleTap() {
+        if (topBar.getVisibility() == View.VISIBLE) {
+            topBar.setAnimation(AnimationUtils.loadAnimation(this, com.lzy.imagepicker.R.anim.top_out));
+            topBar.setVisibility(View.GONE);
+            tintManager.setStatusBarTintResource(Color.TRANSPARENT);//通知栏所需颜色
+            //给最外层布局加上这个属性表示，Activity全屏显示，且状态栏被隐藏覆盖掉。
+//            if (Build.VERSION.SDK_INT >= 16) content.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        } else {
+            topBar.setAnimation(AnimationUtils.loadAnimation(this, com.lzy.imagepicker.R.anim.top_in));
+            topBar.setVisibility(View.VISIBLE);
+            tintManager.setStatusBarTintResource(R.color.ip_color_primary_dark);//通知栏所需颜色
+            //Activity全屏显示，但状态栏不会被隐藏覆盖，状态栏依然可见，Activity顶端布局部分会被状态遮住
+//            if (Build.VERSION.SDK_INT >= 16) content.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        }
+    }
 }

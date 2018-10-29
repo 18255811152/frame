@@ -15,7 +15,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 
-import com.example.qwert.frame.R;
+import com.example.qwert.R;
+
 
 /**
  * 圆角布局

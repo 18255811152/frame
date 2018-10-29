@@ -1,6 +1,8 @@
 package com.lzy.imagepicker;
 
+import android.arch.lifecycle.Lifecycle;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
@@ -76,6 +78,15 @@ public class ImageDataSource implements LoaderManager.LoaderCallbacks<Cursor> {
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+//        /**
+//         * 当api版本的大于27时
+//         * 返回到图片界面会出现黑屏
+//         */
+//        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O_MR1) {
+//            if (imageFolders.size() > 0 && (activity.getLifecycle().getCurrentState() == Lifecycle.State.STARTED || activity.getLifecycle().getCurrentState() == Lifecycle.State.RESUMED)) {
+//                return;
+//            }
+//        }
         imageFolders.clear();
         if (data != null) {
             ArrayList<ImageItem> allImages = new ArrayList<>();   //所有图片的集合,不分文件夹
@@ -83,7 +94,7 @@ public class ImageDataSource implements LoaderManager.LoaderCallbacks<Cursor> {
                 //查询数据
                 String imageName = data.getString(data.getColumnIndexOrThrow(IMAGE_PROJECTION[0]));
                 String imagePath = data.getString(data.getColumnIndexOrThrow(IMAGE_PROJECTION[1]));
-                
+
                 File file = new File(imagePath);
                 if (!file.exists() || file.length() <= 0) {
                     continue;
@@ -122,7 +133,7 @@ public class ImageDataSource implements LoaderManager.LoaderCallbacks<Cursor> {
                 }
             }
             //防止没有图片报异常
-            if (data.getCount() > 0 && allImages.size()>0) {
+            if (data.getCount() > 0 && allImages.size() > 0) {
                 //构造所有图片的集合
                 ImageFolder allImagesFolder = new ImageFolder();
                 allImagesFolder.name = activity.getResources().getString(R.string.ip_all_images);
@@ -143,7 +154,9 @@ public class ImageDataSource implements LoaderManager.LoaderCallbacks<Cursor> {
         System.out.println("--------");
     }
 
-    /** 所有图片加载完成的回调接口 */
+    /**
+     * 所有图片加载完成的回调接口
+     */
     public interface OnImagesLoadedListener {
         void onImagesLoaded(List<ImageFolder> imageFolders);
     }

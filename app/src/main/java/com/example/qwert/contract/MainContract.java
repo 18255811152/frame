@@ -17,7 +17,17 @@ public interface MainContract {
         /**
          * 上传图片
          */
-        void upLoad();
+        void upLoadImagePicker();
+
+        /**
+         * 微信
+         */
+        void upLoadImagePickerWeiXin();
+
+        /**
+         * 自己上传图片
+         */
+        void upLoadImage();
 
 
         void onUpLoadResult(int requestCode, int resultCode, Intent data);
@@ -36,6 +46,10 @@ public interface MainContract {
          * 获取缓存大小
          */
         File getDataMangerSize();
+
+        /**
+         *
+         */
 
     }
 

@@ -82,7 +82,7 @@ public abstract class ImagePreviewBaseActivity extends ImageBaseActivity {
         mAdapter.setPhotoViewClickListener(new ImagePageAdapter.PhotoViewClickListener() {
             @Override
             public void OnPhotoTapListener(View view, float v, float v1) {
-//                onImageSingleTap();
+                onImageSingleTap();
             }
         });
         mViewPager.setAdapter(mAdapter);
@@ -93,7 +93,7 @@ public abstract class ImagePreviewBaseActivity extends ImageBaseActivity {
     }
 
 //    /** 单击时，隐藏头和尾 */
-//    public abstract void onImageSingleTap();
+    public abstract void onImageSingleTap();
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
