@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -214,6 +215,26 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
                 T.s("sssssssssssss");
             }
         });
+    }
+
+    /**
+     * 系统分享
+     */
+    @Override
+    public void SystemShare() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, "sssssssssssssssssss");
+        intent.setType("text/plain");
+        mActivity.startActivity(intent.createChooser(intent, "分享"));
+    }
+
+    /**
+     * 系统短信发送
+     */
+    @Override
+    public void SystemSms() {
+        Uri uri = Uri.parse("smsto:");
+        mActivity.startActivityForResult(new Intent(Intent.ACTION_VIEW, uri).putExtra("sms_body", "sms_body").setType("vnd.android-dir/mms-sms"), 1002);
     }
 
 }

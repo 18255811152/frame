@@ -9,4 +9,7 @@
     <string name="copy">复制</string>
     <string name="create_rend_psd">生成随机密码</string>
     <string name="instance_dialog">对话框实例</string>
+    <string name="share">系统分享功能</string>
+    <string name="SMS_MSG">xx不知道你有没有发送，反正你是回到这个界面了~~~~~~~~~</string>
+    <string name="system_send_msg">系统短信发送</string>
 </resources>

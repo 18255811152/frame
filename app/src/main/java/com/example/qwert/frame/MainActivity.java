@@ -13,6 +13,7 @@ import com.example.qwert.app.utils.DataCleanManager;
 import com.example.qwert.contract.MainContract;
 import com.example.qwert.presenter.MainPresenter;
 import com.example.qwert.tools.Rxbus;
+import com.example.qwert.tools.T;
 import com.example.qwert.value.ContactValue;
 import com.example.qwert.view.activity.base.BaseActivity;
 import com.hwangjr.rxbus.annotation.Subscribe;
@@ -138,7 +139,7 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
 
     @OnClick({R.id.clear_data, R.id.upload, R.id.upload_imagePicker,
             R.id.upload_imagePicker_weixin, R.id.btn_randomCode,
-            R.id.instance_dialog})
+            R.id.instance_dialog, R.id.btn_share, R.id.btn_sms})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             /*清空缓存*/
@@ -161,14 +162,27 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
             case R.id.btn_randomCode:
                 btnRandomCode.setText(mPresenter.createRandomCode());
                 break;
-
             /*对话框实例*/
             case R.id.instance_dialog:
                 mPresenter.instanceDialog();
                 break;
-
-
+            /*系统自带分享*/
+            case R.id.btn_share:
+                mPresenter.SystemShare();
+                break;
+            /*通过短信分享*/
+            case R.id.btn_sms:
+                mPresenter.SystemSms();
+                break;
         }
     }
 
+
+    @Override
+    public void onActivityReenter(int resultCode, Intent data) {
+        super.onActivityReenter(resultCode, data);
+        if (resultCode == 1002) {
+            T.s(getString(R.string.SMS_MSG));
+        }
+    }
 }

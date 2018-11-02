@@ -57,6 +57,17 @@ public interface MainContract {
          */
         void instanceDialog();
 
+
+        /**
+         * 系统分享功能
+         */
+        void SystemShare();
+
+        /**
+         * 系统短信发送功能
+         */
+        void SystemSms();
+
     }
 
 }
