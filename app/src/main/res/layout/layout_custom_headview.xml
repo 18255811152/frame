@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+
+    android:background="@drawable/shape_title_bg">
+
+    <FrameLayout
+        android:id="@+id/left_btn"
+        android:layout_width="42dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/ic_launcher" />
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/title_name"
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/font_15sp" />
+
+
+    <FrameLayout
+        android:id="@+id/fl_right_click"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:src="@mipmap/ic_launcher" />
+    </FrameLayout>
+</RelativeLayout>

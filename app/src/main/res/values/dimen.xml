@@ -1,4 +1,6 @@
 <resources>
+
+    <dimen name="activity_horizontal_margin">10dp</dimen>
     <dimen name="dp_2">2dp</dimen>
     <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_5">5dp</dimen>

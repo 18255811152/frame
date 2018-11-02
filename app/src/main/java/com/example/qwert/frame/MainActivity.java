@@ -16,6 +16,7 @@ import com.example.qwert.tools.Rxbus;
 import com.example.qwert.tools.T;
 import com.example.qwert.value.ContactValue;
 import com.example.qwert.view.activity.base.BaseActivity;
+import com.example.qwert.view.weight.HeadTitleView;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
@@ -43,11 +44,19 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
     Button btnRandomCode;
     @BindView(R.id.instance_dialog)
     Button instanceDialog;
+    @BindView(R.id.headTitle)
+    HeadTitleView headTitle;
+    @BindView(R.id.btn_share)
+    Button btnShare;
+    @BindView(R.id.btn_sms)
+    Button btnSms;
 
 
     @Override
     public void onCreaet() {
+        headTitle.setHeadTitleName(getString(R.string.Main_TitleName), false);
         mPresenter.onCreaet();
+
     }
 
     @Override
