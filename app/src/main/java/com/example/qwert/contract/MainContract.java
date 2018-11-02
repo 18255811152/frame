@@ -48,8 +48,9 @@ public interface MainContract {
         File getDataMangerSize();
 
         /**
-         *
+         * 生成随机密码
          */
+        String createRandomCode();
 
     }
 

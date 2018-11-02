@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.qwert.R;
 import com.example.qwert.app.utils.DataCleanManager;
-import com.example.qwert.app.utils.GlideImageLoader;
 import com.example.qwert.contract.MainContract;
 import com.example.qwert.presenter.MainPresenter;
 import com.example.qwert.tools.Rxbus;
@@ -20,8 +18,6 @@ import com.example.qwert.view.activity.base.BaseActivity;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
-import com.lzy.imagepicker.ImagePicker;
-import com.lzy.imagepicker.view.CropImageView;
 
 import java.io.File;
 
@@ -42,6 +38,9 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
 
     @BindView(R.id.clear_data)
     Button clearData;
+    @BindView(R.id.btn_randomCode)
+    Button btnRandomCode;
+
 
     @Override
     public void onCreaet() {
@@ -126,7 +125,7 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
     @BindView(R.id.loadImage)
     ImageView imageView;
 
-
+    /*获取图片路径*/
     @Subscribe
             (thread = EventThread.MAIN_THREAD,
                     tags = {@Tag(ContactValue.UPLOAD_IMAGE_PATH)}
@@ -135,24 +134,30 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
         imageView.setImageURI(Uri.fromFile(new File(ImagePath)));
     }
 
-    @OnClick({R.id.clear_data, R.id.upload, R.id.upload_imagePicker, R.id.upload_imagePicker_weixin})
+    @OnClick({R.id.clear_data, R.id.upload, R.id.upload_imagePicker, R.id.upload_imagePicker_weixin, R.id.btn_randomCode})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            /*清空缓存*/
             case R.id.clear_data:
                 clearData.setText(mPresenter.clearData(clearData.getText().toString().trim()));
                 break;
-
+            /*单张上传图片*/
             case R.id.upload_imagePicker:
                 mPresenter.upLoadImagePicker();
                 break;
-
+            /*仿照微信上传图片*/
             case R.id.upload_imagePicker_weixin:
                 mPresenter.upLoadImagePickerWeiXin();
                 break;
-
+            /*上传图片*/
             case R.id.upload:
                 mPresenter.upLoadImage();
                 break;
+            /*生成6位密码*/
+            case R.id.btn_randomCode:
+                btnRandomCode.setText(mPresenter.createRandomCode());
+                break;
+
         }
     }
 

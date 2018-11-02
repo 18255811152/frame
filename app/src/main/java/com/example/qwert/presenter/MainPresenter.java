@@ -8,9 +8,19 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.PopupWindow;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.example.qwert.R;
 import com.example.qwert.app.utils.DataCleanManager;
+import com.example.qwert.app.utils.GeneratePassWordUtils;
 import com.example.qwert.app.utils.GlideImageLoader;
 import com.example.qwert.app.utils.ImageUtil;
 import com.example.qwert.contract.MainContract;
@@ -18,7 +28,6 @@ import com.example.qwert.presenter.base.BasePresenter;
 import com.example.qwert.tools.I;
 import com.example.qwert.tools.Rxbus;
 import com.example.qwert.value.ContactValue;
-import com.example.qwert.view.weight.SelectDialog;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
@@ -27,28 +36,49 @@ import com.lzy.imagepicker.view.CropImageView;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainPresenter extends BasePresenter<MainContract.IView> implements MainContract.IPresenter {
     public static final int REQUEST_CODE_CHOOSE = 100;
+    @BindView(R.id.random)
+    TextView random;
+    @BindView(R.id.create_psw)
+    TextView createPsw;
+    @BindView(R.id.seekBar)
+    SeekBar seekBar;
+    @BindView(R.id.big)
+    CheckBox big;
+    @BindView(R.id.small)
+    CheckBox small;
+    @BindView(R.id.special)
+    CheckBox special;
+    @BindView(R.id.btn_cancle)
+    Button btnCancle;
+    @BindView(R.id.btn_ref)
+    Button btnRef;
+    @BindView(R.id.btn_copy)
+    Button btnCopy;
     private String cacheSize = "0.0KB";
 
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
-    Handler handler = new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message message) {
-            switch (message.what) {
-                case 0x00:
 
-                    break;
+    private PopupWindow mPopwindow;
 
-                case 0x01:
 
-                    break;
-            }
-            return true;
+    Handler handler = new Handler(message -> {
+        switch (message.what) {
+            case 0x00:
+
+                break;
+
+            case 0x01:
+
+                break;
         }
+        return true;
     });
 
 
@@ -160,4 +190,13 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
     }
 
 
+    /**
+     * 生成随机密码
+     */
+    @Override
+    public String createRandomCode() {
+        /*生成6位密码*/
+        String Psw = GeneratePassWordUtils.getRandomPwd(6, true, true, true);
+        return Psw;
+    }
 }
