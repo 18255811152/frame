@@ -8,4 +8,5 @@
     <string name="ref">刷新</string>
     <string name="copy">复制</string>
     <string name="create_rend_psd">生成随机密码</string>
+    <string name="instance_dialog">对话框实例</string>
 </resources>

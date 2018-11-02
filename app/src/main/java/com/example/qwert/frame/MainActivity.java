@@ -40,6 +40,8 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
     Button clearData;
     @BindView(R.id.btn_randomCode)
     Button btnRandomCode;
+    @BindView(R.id.instance_dialog)
+    Button instanceDialog;
 
 
     @Override
@@ -134,7 +136,9 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
         imageView.setImageURI(Uri.fromFile(new File(ImagePath)));
     }
 
-    @OnClick({R.id.clear_data, R.id.upload, R.id.upload_imagePicker, R.id.upload_imagePicker_weixin, R.id.btn_randomCode})
+    @OnClick({R.id.clear_data, R.id.upload, R.id.upload_imagePicker,
+            R.id.upload_imagePicker_weixin, R.id.btn_randomCode,
+            R.id.instance_dialog})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             /*清空缓存*/
@@ -158,8 +162,13 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
                 btnRandomCode.setText(mPresenter.createRandomCode());
                 break;
 
+            /*对话框实例*/
+            case R.id.instance_dialog:
+                mPresenter.instanceDialog();
+                break;
+
+
         }
     }
-
 
 }

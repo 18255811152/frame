@@ -52,6 +52,11 @@ public interface MainContract {
          */
         String createRandomCode();
 
+        /**
+         * dialog实例
+         */
+        void instanceDialog();
+
     }
 
 }

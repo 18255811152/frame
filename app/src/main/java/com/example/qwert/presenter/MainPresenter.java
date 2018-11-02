@@ -27,7 +27,10 @@ import com.example.qwert.contract.MainContract;
 import com.example.qwert.presenter.base.BasePresenter;
 import com.example.qwert.tools.I;
 import com.example.qwert.tools.Rxbus;
+import com.example.qwert.tools.T;
 import com.example.qwert.value.ContactValue;
+import com.example.qwert.view.weight.DialogListener;
+import com.example.qwert.view.weight.DialogUtils;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
@@ -199,4 +202,18 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
         String Psw = GeneratePassWordUtils.getRandomPwd(6, true, true, true);
         return Psw;
     }
+
+    /**
+     * dialog实例
+     */
+    @Override
+    public void instanceDialog() {
+        DialogUtils.showMsgDialog(mActivity, "sssssssss", "ssssssssss", new DialogListener() {
+            @Override
+            public void onClick() {
+                T.s("sssssssssssss");
+            }
+        });
+    }
+
 }
