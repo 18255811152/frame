@@ -107,9 +107,7 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
                     if (!TextUtils.isEmpty(imgPath)) {
                         Bitmap bitmap = BitmapFactory.decodeFile(imgPath);
                         if (null != bitmap) {
-                            /**
-                             * 组件加载图片
-                             */
+                            /*组件加载图片*/
 //                            ivHeader.setImageBitmap(ImageUtil.toRoundBitmap(bitmap));
                         }
                         try {
@@ -118,16 +116,12 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
                                 dir.mkdirs();
                             }
 
-                            /**
-                             * 获取图片路径
-                             * 后拼接上时间
-                             */
+                            /*  获取图片路径
+                             * 后拼接上时间*/
                             String dstFilePath = ContactValue.TEMP_FILE_PATH + "avatar_" + System.currentTimeMillis() + ".png";
                             File avatarFile = ImageUtil.resizeBitmapAndSave(bitmap, dstFilePath, 0.3f);
                             if (avatarFile != null && avatarFile.exists()) {
-                                /**
-                                 * 上传图片路径
-                                 */
+                                /*上传图片路径*/
                                 Rxbus.get().post(ContactValue.UPLOAD_IMAGE_PATH, avatarFile.getPath());
 //                                uploadImgFile(avatarFile.getPath());
                             }
@@ -172,31 +166,22 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
         return file;
     }
 
-
-    /**
-     * 仿照微信上传
-     */
+    /*仿照微信上传*/
     @Override
     public void upLoadImagePickerWeiXin() {
         mHandler.postDelayed(() -> {
             I.goWeiXinActivity(mActivity);
-            mActivity.finish();
             mActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }, 1000);
     }
 
-    /**
-     * 普通上传
-     */
+    /*普通上传*/
     @Override
     public void upLoadImage() {
 
     }
 
-
-    /**
-     * 生成随机密码
-     */
+    /*生成随机密码*/
     @Override
     public String createRandomCode() {
         /*生成6位密码*/
@@ -204,9 +189,7 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
         return Psw;
     }
 
-    /**
-     * dialog实例
-     */
+    /*dialog实例*/
     @Override
     public void instanceDialog() {
         DialogUtils.showMsgDialog(mActivity, "sssssssss", "ssssssssss", new DialogListener() {
@@ -217,9 +200,7 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
         });
     }
 
-    /**
-     * 系统分享
-     */
+    /*系统分享*/
     @Override
     public void SystemShare() {
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -228,13 +209,18 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
         mActivity.startActivity(intent.createChooser(intent, "分享"));
     }
 
-    /**
-     * 系统短信发送
-     */
+    /*系统短信发送*/
     @Override
     public void SystemSms() {
         Uri uri = Uri.parse("smsto:");
         mActivity.startActivityForResult(new Intent(Intent.ACTION_VIEW, uri).putExtra("sms_body", "sms_body").setType("vnd.android-dir/mms-sms"), 1002);
     }
+
+    /*刷新界面*/
+    @Override
+    public void Refresh() {
+        I.gotoRefresh(mActivity);
+    }
+
 
 }

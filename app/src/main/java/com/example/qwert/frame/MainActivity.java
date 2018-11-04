@@ -4,6 +4,7 @@ package com.example.qwert.frame;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -54,9 +55,8 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
 
     @Override
     public void onCreaet() {
-        headTitle.setHeadTitleName(getString(R.string.Main_TitleName), false);
+        headTitle.setHeadTitleName(getString(R.string.Main_TitleName), true);
         mPresenter.onCreaet();
-
     }
 
     @Override
@@ -148,7 +148,7 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
 
     @OnClick({R.id.clear_data, R.id.upload, R.id.upload_imagePicker,
             R.id.upload_imagePicker_weixin, R.id.btn_randomCode,
-            R.id.instance_dialog, R.id.btn_share, R.id.btn_sms})
+            R.id.instance_dialog, R.id.btn_share, R.id.btn_sms, R.id.btn_refresh})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             /*清空缓存*/
@@ -182,6 +182,9 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
             /*通过短信分享*/
             case R.id.btn_sms:
                 mPresenter.SystemSms();
+                break;
+            case R.id.btn_refresh:
+                mPresenter.Refresh();
                 break;
         }
     }

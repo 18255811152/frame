@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.qwert.frame.MainActivity;
+import com.example.qwert.view.activity.RefreshActivity;
 import com.example.qwert.view.activity.WeiXinActivity;
 
 /**
@@ -26,4 +27,7 @@ public class I {
         context.startActivity(new Intent(context.getApplicationContext(), WeiXinActivity.class));
     }
 
+    public static void gotoRefresh(Context context) {
+        context.startActivity(new Intent(context.getApplicationContext(), RefreshActivity.class));
+    }
 }

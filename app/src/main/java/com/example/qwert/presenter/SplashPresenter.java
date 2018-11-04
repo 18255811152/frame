@@ -42,19 +42,9 @@ public class SplashPresenter extends BasePresenter<SplashContract.IView> impleme
 
     @Override
     public void CheckPermission() {
-        /**
-         * 获取读取sd卡的权限
-         */
-        AndPermission.with(mActivity).runtime().permission(permissions).onGranted(new Action<List<String>>() {
-            @Override
-            public void onAction(List<String> data) {
-
-            }
-        }).onDenied(new Action<List<String>>() {
-            @Override
-            public void onAction(List<String> data) {
-
-            }
+        /*获取读取sd卡的权限*/
+        AndPermission.with(mActivity).permission(permissions).onDenied(permissions -> {
+        }).onGranted(permissions -> {
         }).start();
     }
 }

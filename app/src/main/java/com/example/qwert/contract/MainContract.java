@@ -47,6 +47,9 @@ public interface MainContract {
         /* 系统短信发送功能*/
         void SystemSms();
 
+        /*刷新*/
+        void Refresh();
+
     }
 
 }

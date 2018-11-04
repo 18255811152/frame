@@ -76,6 +76,8 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="${JPUSH_APPKEY}" />
+
+        <activity android:name=".view.activity.RefreshActivity" />
     </application>
 
 </manifest>

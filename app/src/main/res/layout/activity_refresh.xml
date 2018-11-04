@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <!--<com.example.qwert.view.weight.HeadTitleView-->
+    <!--android:id="@+id/headTitle"-->
+    <!--android:layout_width="match_parent>"-->
+    <!--android:layout_height="50dp" />-->
+
+    <include
+        layout="@layout/layout_switetoloadlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

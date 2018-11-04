@@ -93,7 +93,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
+    implementation 'com.yanzhenjie:permission:2.0.0-rc4'
 
     implementation 'com.android.support:recyclerview-v7:28.0.0'
 
@@ -103,14 +103,9 @@ dependencies {
     implementation('com.hwangjr.rxbus:rxbus:2.0.0') {
         exclude group: 'com.hwangjr.utils', module: 'timber'
     }
-
-
-
+    /*选择图片*/
     implementation project(':imagepicker')
-
-    /**
-     * 极光推送
-     */
+    /*极光推送*/
     implementation 'cn.jiguang.sdk:jpush:3.1.5'
     // 此处以JPush 3.1.5 版本为例。
     implementation 'cn.jiguang.sdk:jcore:1.2.3'
@@ -119,4 +114,6 @@ dependencies {
     /*刷新控件*/
     implementation 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
     implementation 'org.jetbrains:annotations:15.0'
+    /*快速开发RecyclerHelper*/
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
 }

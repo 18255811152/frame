@@ -116,6 +116,15 @@
                     android:gravity="center"
                     android:text="@string/system_send_msg" />
 
+                <Button
+                    android:id="@+id/btn_refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/refresh" />
+
             </LinearLayout>
 
 

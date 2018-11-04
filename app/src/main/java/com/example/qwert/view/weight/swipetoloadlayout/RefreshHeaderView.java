@@ -35,6 +35,7 @@ public class RefreshHeaderView extends LinearLayout implements SwipeRefreshTrigg
         init();
     }
 
+    /*初始化组件*/
     private void init() {
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         View view = View.inflate(getContext(), R.layout.refresh_head_layout, null);
