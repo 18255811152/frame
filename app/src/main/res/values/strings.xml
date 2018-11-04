@@ -13,4 +13,13 @@
     <string name="SMS_MSG">xx不知道你有没有发送，反正你是回到这个界面了~~~~~~~~~</string>
     <string name="system_send_msg">系统短信发送</string>
     <string name="Main_TitleName">我是TitleName</string>
+    <string name="LOADING_MORE">正在加载更多</string>
+    <string name="RELEASE_TO_LOAD_MORE">松开加载更多</string>
+    <string name="SWIPE_TO_LOAD_MORE">点击加载更多</string>
+    <string name="LOAD_MORE_RETURNING">加载正在返回中</string>
+    <string name="LOAD_MORE_COMPLETE">加载更多完成</string>
+    <string name="REFRESHING">正在刷新</string>
+    <string name="RELEASE_TO_REFRESH">松开刷新</string>
+    <string name="SWIPE_TO_REFRESH">点击刷新</string>
+    <string name="REFRESH_RETURNING">刷新正在返回中</string>
 </resources>

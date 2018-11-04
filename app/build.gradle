@@ -116,6 +116,7 @@ dependencies {
     implementation 'cn.jiguang.sdk:jcore:1.2.3'
     // 此处以JCore 1.2.3 版本为例。
     implementation 'com.android.support:multidex:1.0.3'
-
-
+    /*刷新控件*/
+    implementation 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+    implementation 'org.jetbrains:annotations:15.0'
 }
