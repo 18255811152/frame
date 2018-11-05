@@ -1,6 +1,7 @@
 package com.example.qwert.view.weight.swipetoloadlayout;
 
 import android.content.Context;
+import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageView;

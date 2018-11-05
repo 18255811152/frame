@@ -183,6 +183,7 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
             case R.id.btn_sms:
                 mPresenter.SystemSms();
                 break;
+            /*刷新*/
             case R.id.btn_refresh:
                 mPresenter.Refresh();
                 break;

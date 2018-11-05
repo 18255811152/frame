@@ -25,13 +25,10 @@ public class SplashPresenter extends BasePresenter<SplashContract.IView> impleme
 
     @Override
     public void goMain() {
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                I.goMain(mActivity);
-                mActivity.finish();
-                mActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            }
+        mHandler.postDelayed(() -> {
+            I.goMain(mActivity);
+            mActivity.finish();
+            mActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }, 2000);
     }
 
