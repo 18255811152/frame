@@ -1,4 +1,4 @@
-package com.example.qwert.presenter;
+package com.example.qwert.mvp.presenter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,12 +7,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.PopupWindow;
@@ -24,10 +19,9 @@ import com.example.qwert.app.utils.DataCleanManager;
 import com.example.qwert.app.utils.GeneratePassWordUtils;
 import com.example.qwert.app.utils.GlideImageLoader;
 import com.example.qwert.app.utils.ImageUtil;
-import com.example.qwert.contract.MainContract;
-import com.example.qwert.presenter.base.BasePresenter;
+import com.example.qwert.mvp.contract.MainContract;
+import com.example.qwert.mvp.presenter.base.BasePresenter;
 import com.example.qwert.tools.I;
-import com.example.qwert.tools.Rxbus;
 import com.example.qwert.tools.T;
 import com.example.qwert.value.ContactValue;
 import com.example.qwert.view.weight.DialogListener;
@@ -42,7 +36,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class MainPresenter extends BasePresenter<MainContract.IView> implements MainContract.IPresenter {
     public static final int REQUEST_CODE_CHOOSE = 100;
@@ -122,8 +115,11 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
                             File avatarFile = ImageUtil.resizeBitmapAndSave(bitmap, dstFilePath, 0.3f);
                             if (avatarFile != null && avatarFile.exists()) {
                                 /*上传图片路径*/
-                                Rxbus.get().post(ContactValue.UPLOAD_IMAGE_PATH, avatarFile.getPath());
+
+                                /*通过rxbus传递参数*/
+//                                Rxbus.get().post(ContactValue.UPLOAD_IMAGE_PATH, avatarFile.getPath());
 //                                uploadImgFile(avatarFile.getPath());
+                                mView.setImagePath(avatarFile.getPath());
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -183,10 +179,10 @@ public class MainPresenter extends BasePresenter<MainContract.IView> implements 
 
     /*生成随机密码*/
     @Override
-    public String createRandomCode() {
+    public void createRandomCode() {
         /*生成6位密码*/
         String Psw = GeneratePassWordUtils.getRandomPwd(6, true, true, true);
-        return Psw;
+        mView.setRandom(Psw);
     }
 
     /*dialog实例*/

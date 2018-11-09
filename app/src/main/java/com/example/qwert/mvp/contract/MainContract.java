@@ -1,16 +1,18 @@
-package com.example.qwert.contract;
+package com.example.qwert.mvp.contract;
 
 import android.content.Intent;
 
-import com.example.qwert.contract.base.IBasePresenter;
-import com.example.qwert.contract.base.IBaseView;
+import com.example.qwert.mvp.contract.base.IBasePresenter;
+import com.example.qwert.mvp.contract.base.IBaseView;
 
 import java.io.File;
 
 public interface MainContract {
 
     interface IView extends IBaseView, IBasePresenter {
+        void setRandom(String random);
 
+        void setImagePath(String imagePath);
     }
 
     interface IPresenter extends IBasePresenter {
@@ -36,7 +38,7 @@ public interface MainContract {
         File getDataMangerSize();
 
         /*生成随机密码*/
-        String createRandomCode();
+        void createRandomCode();
 
         /*dialog实例*/
         void instanceDialog();

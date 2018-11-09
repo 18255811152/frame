@@ -4,23 +4,17 @@ package com.example.qwert.frame;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.qwert.R;
 import com.example.qwert.app.utils.DataCleanManager;
-import com.example.qwert.contract.MainContract;
-import com.example.qwert.presenter.MainPresenter;
+import com.example.qwert.mvp.contract.MainContract;
+import com.example.qwert.mvp.presenter.MainPresenter;
 import com.example.qwert.tools.Rxbus;
-import com.example.qwert.tools.T;
-import com.example.qwert.value.ContactValue;
 import com.example.qwert.view.activity.base.BaseActivity;
 import com.example.qwert.view.weight.HeadTitleView;
-import com.hwangjr.rxbus.annotation.Subscribe;
-import com.hwangjr.rxbus.annotation.Tag;
-import com.hwangjr.rxbus.thread.EventThread;
 
 import java.io.File;
 
@@ -137,14 +131,6 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
     @BindView(R.id.loadImage)
     ImageView imageView;
 
-    /*获取图片路径*/
-    @Subscribe
-            (thread = EventThread.MAIN_THREAD,
-                    tags = {@Tag(ContactValue.UPLOAD_IMAGE_PATH)}
-            )
-    public void getImagePath(String ImagePath) {
-        imageView.setImageURI(Uri.fromFile(new File(ImagePath)));
-    }
 
     @OnClick({R.id.clear_data, R.id.upload, R.id.upload_imagePicker,
             R.id.upload_imagePicker_weixin, R.id.btn_randomCode,
@@ -169,7 +155,7 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
                 break;
             /*生成6位密码*/
             case R.id.btn_randomCode:
-                btnRandomCode.setText(mPresenter.createRandomCode());
+                mPresenter.createRandomCode();
                 break;
             /*对话框实例*/
             case R.id.instance_dialog:
@@ -190,12 +176,22 @@ public class MainActivity extends BaseActivity<MainContract.IPresenter> implemen
         }
     }
 
-
     @Override
-    public void onActivityReenter(int resultCode, Intent data) {
-        super.onActivityReenter(resultCode, data);
-        if (resultCode == 1002) {
-            T.s(getString(R.string.SMS_MSG));
-        }
+    public void setRandom(String random) {
+        btnRandomCode.setText(random);
+    }
+
+
+    /*获取图片路径*/
+//    @Subscribe
+//            (thread = EventThread.MAIN_THREAD,
+//                    tags = {@Tag(ContactValue.UPLOAD_IMAGE_PATH)}
+//            )
+//    public void getImagePath(String ImagePath) {
+//        imageView.setImageURI(Uri.fromFile(new File(ImagePath)));
+//    }
+    @Override
+    public void setImagePath(String imagePath) {
+        imageView.setImageURI(Uri.fromFile(new File(imagePath)));
     }
 }

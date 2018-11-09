@@ -1,16 +1,14 @@
 package com.example.qwert.view.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.example.qwert.R;
-import com.example.qwert.contract.RefreshContract;
-import com.example.qwert.presenter.RefreshPresenter;
+import com.example.qwert.mvp.contract.RefreshContract;
+import com.example.qwert.mvp.presenter.RefreshPresenter;
 import com.example.qwert.view.activity.adapter.TestRefreshAdapter;
 import com.example.qwert.view.activity.base.BaseActivity;
-import com.example.qwert.view.weight.HeadTitleView;
 import com.example.qwert.view.weight.swipetoloadlayout.LoadMoreFooterVeiw;
 import com.example.qwert.view.weight.swipetoloadlayout.RefreshHeaderView;
 

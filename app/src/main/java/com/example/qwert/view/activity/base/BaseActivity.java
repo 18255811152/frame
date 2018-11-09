@@ -5,8 +5,8 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.example.qwert.app.utils.StatusBarUtils;
-import com.example.qwert.contract.base.IBasePresenter;
-import com.example.qwert.contract.base.IBaseView;
+import com.example.qwert.mvp.contract.base.IBasePresenter;
+import com.example.qwert.mvp.contract.base.IBaseView;
 import com.example.qwert.tools.T;
 
 import java.io.InterruptedIOException;

@@ -1,9 +1,9 @@
-package com.example.qwert.presenter;
+package com.example.qwert.mvp.presenter;
 
 import android.app.Activity;
 
-import com.example.qwert.contract.RefreshContract;
-import com.example.qwert.presenter.base.BasePresenter;
+import com.example.qwert.mvp.contract.RefreshContract;
+import com.example.qwert.mvp.presenter.base.BasePresenter;
 
 public class RefreshPresenter extends BasePresenter<RefreshContract.IView> implements RefreshContract.IPresenter {
 

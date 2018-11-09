@@ -1,9 +1,9 @@
-package com.example.qwert.presenter.base;
+package com.example.qwert.mvp.presenter.base;
 
 import android.app.Activity;
 
-import com.example.qwert.contract.base.IBasePresenter;
-import com.example.qwert.contract.base.IBaseView;
+import com.example.qwert.mvp.contract.base.IBasePresenter;
+import com.example.qwert.mvp.contract.base.IBaseView;
 import com.example.qwert.tools.L;
 
 public class BasePresenter<V extends IBaseView> implements IBasePresenter {

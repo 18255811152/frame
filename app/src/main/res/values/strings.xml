@@ -25,4 +25,27 @@
     <string name="SWIPE_TO_REFRESH">点击刷新</string>
     <string name="REFRESH_RETURNING">刷新正在返回中</string>
     <string name="refresh">刷新</string>
+
+
+
+
+
+
+
+    <!--服务器请求出现的code码问题-->
+    <string name="http_code_default">未知错误%1$d</string>
+    <string name="http_code_201">新资源被创建</string>
+    <string name="http_code_202">已接受处理请求但尚未完成</string>
+    <string name="http_code_204">资源为空</string>
+    <string name="http_code_301">资源的URI被更新</string>
+    <string name="http_code_400">坏请求</string>
+    <string name="http_code_401">禁止访问</string>
+    <string name="http_code_404">资源不存在</string>
+    <string name="http_code_406">服务端不支持所需表示</string>
+    <string name="http_code_409">通用冲突</string>
+    <string name="http_code_412">前置条件失败</string>
+    <string name="http_code_415">接受到的表示不受支持</string>
+    <string name="http_code_500">服务器错误</string>
+    <string name="http_code_503">服务当前无法处理请求</string>
+    <string name="http_code_701">请求的token为空或已失效</string>
 </resources>

@@ -1,7 +1,7 @@
-package com.example.qwert.contract;
+package com.example.qwert.mvp.contract;
 
-import com.example.qwert.contract.base.IBasePresenter;
-import com.example.qwert.contract.base.IBaseView;
+import com.example.qwert.mvp.contract.base.IBasePresenter;
+import com.example.qwert.mvp.contract.base.IBaseView;
 
 public interface RefreshContract {
 
