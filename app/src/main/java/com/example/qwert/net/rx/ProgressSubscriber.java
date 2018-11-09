@@ -2,10 +2,10 @@ package com.example.qwert.net.rx;
 
 import android.content.Context;
 
-import com.dawoo.lotterybox.BoxApplication;
-import com.dawoo.lotterybox.ConstantValue;
-import com.dawoo.lotterybox.R;
-import com.dawoo.lotterybox.util.SingleToast;
+import com.example.qwert.BoxApplication;
+import com.example.qwert.ConstantValue;
+import com.example.qwert.R;
+import com.example.qwert.app.utils.SingleToast;
 import com.hwangjr.rxbus.RxBus;
 
 import java.net.ConnectException;

@@ -24,11 +24,11 @@ public class RefreshHeaderView extends LinearLayout implements SwipeRefreshTrigg
 
 
     public RefreshHeaderView(Context context) {
-        super(context);
+        this(context, null, 0);
     }
 
     public RefreshHeaderView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public RefreshHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
